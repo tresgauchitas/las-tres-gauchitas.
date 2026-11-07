@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario | Las Tres Gauchitas</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="menu">
+        <div class="logo">
+            <i class="fa-solid fa-store"></i>
+            <h2>Tres Gauchitas</h2>
+        </div>
+
+        <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+            Inicio
+        </a>
+
+        <a href="inventario.html" class="activo">
+            <i class="fa-solid fa-box"></i>
+            Inventario
+        </a>
+
+        <a href="movimientos.html">
+            <i class="fa-solid fa-right-left"></i>
+            Movimientos
+        </a>
+
+        <a href="login.html">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Salir
+        </a>
+    </div>
+
+    <main class="contenido">
+
+        <div class="encabezado">
+            <div>
+                <h1><i class="fa-solid fa-boxes-stacked"></i> Inventario</h1>
+                <p>Administra los productos de Las Tres Gauchitas.</p>
+            </div>
+
+            <button id="agregar">
+                <i class="fa-solid fa-plus"></i>
+                Agregar producto
+            </button>
+        </div>
+
+        <input type="text" id="buscar" placeholder="Buscar producto...">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Marca</th>
+                    <th>Descripción</th>
+                    <th>Cantidad</th>
+                    <th>Precio (Bs)</th>
+                    <th>Vencimiento</th>
+                </tr>
+            </thead>
+
+            <tbody id="tablaProductos"></tbody>
+        </table>
+
+    </main>
+
+    <div class="modal" id="modal">
+        <form class="formulario" id="formulario">
+
+            <h2><i class="fa-solid fa-box-open"></i> Producto</h2>
+
+            <label for="nombre">Nombre del producto</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Ej. Leche" required>
+
+            <label for="categoria">Marca</label>
+            <input type="text" name="categoria" id="categoria" placeholder="Ej. PIL">
+
+            <label for="descripcion">Descripción</label>
+            <input type="text" name="descripcion" id="descripcion" placeholder="Ej. 1 litro, 500 g, 2 kg">
+
+            <label for="cantidad">Cantidad</label>
+            <input type="number" name="cantidad" id="cantidad" min="0" placeholder="Ej. 20" required>
+
+            <label for="precio">Precio (Bs)</label>
+            <input type="number" name="precio" id="precio" min="0" step="0.01" placeholder="Ej. 8.50" required>
+
+            <label for="vencimiento">Fecha de vencimiento</label>
+            <input type="date" name="vencimiento" id="vencimiento">
+
+            <div class="acciones">
+                <button type="submit" id="guardar">Guardar</button>
+                <button type="button" id="cancelar">Cancelar</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="js/sesion.js"></script>
+    <script src="js/inventario.js"></script>
+
+</body>
+</html>
