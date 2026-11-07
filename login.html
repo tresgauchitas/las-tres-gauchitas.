@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Acceso | Las Tres Gauchitas</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="pagina-login">
+
+    <div class="login-contenedor">
+
+        <!-- ENCABEZADO -->
+
+        <div class="login-logo">
+
+            <i class="fa-solid fa-store"></i>
+
+            <h1>Las Tres Gauchitas</h1>
+
+            <p>Sistema de gestión de inventario</p>
+
+        </div>
+
+
+        <!-- FORMULARIO DE ACCESO -->
+
+        <div class="login-formulario">
+
+            <h2 id="tituloFormulario">Bienvenido</h2>
+
+            <p id="descripcionFormulario">
+                Ingresa tus datos para acceder al sistema
+            </p>
+
+
+            <form id="formLogin">
+
+                <label for="usuario">Nombre de usuario</label>
+
+                <div class="login-input">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="usuario"
+                        placeholder="Escribe tu usuario"
+                        required
+                    >
+
+                </div>
+
+
+                <label for="contrasena">Contraseña</label>
+
+                <div class="login-input">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="contrasena"
+                        placeholder="Escribe tu contraseña"
+                        required
+                    >
+
+                    <button type="button" id="mostrarPassword">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+
+                </div>
+
+
+                <!-- REPETIR CONTRASEÑA: SOLO PARA REGISTRO -->
+
+                <div id="campoRepetir" style="display:none;">
+
+                    <label for="repetirContrasena">
+                        Confirmar contraseña
+                    </label>
+
+                    <div class="login-input">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="repetirContrasena"
+                            placeholder="Repite tu contraseña"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="btn-login" id="botonAcceso">
+
+                    Iniciar sesión
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+                <p id="mensajeLogin"></p>
+
+            </form>
+
+
+            <!-- CAMBIAR ENTRE ACCESO Y REGISTRO -->
+
+            <div class="cambiar-login">
+
+                <p id="textoCambiar">
+                    ¿No tienes una cuenta?
+                </p>
+
+                <button type="button" id="botonCambiar">
+                    Crear cuenta
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PIE DE PÁGINA -->
+
+        <div class="login-pie">
+
+            © 2026 Las Tres Gauchitas
+
+            <br>
+
+            Sistema de control de inventario
+
+        </div>
+
+    </div>
+
+
+    <script src="js/login.js"></script>
+
+</body>
+</html>
+

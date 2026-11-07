@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimientos | Las Tres Gauchitas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="menu">
+        <div class="logo">
+            <i class="fa-solid fa-store"></i>
+            <h2>Tres Gauchitas</h2>
+        </div>
+
+        <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+            Inicio
+        </a>
+
+        <a href="inventario.html">
+            <i class="fa-solid fa-box"></i>
+            Inventario
+        </a>
+
+        <a href="movimientos.html" class="activo">
+            <i class="fa-solid fa-right-left"></i>
+            Movimientos
+        </a>
+
+        <a href="login.html">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Salir
+        </a>
+    </div>
+
+    <main class="contenido">
+
+        <div class="bienvenida">
+            <h1><i class="fa-solid fa-right-left"></i> Movimientos</h1>
+            <p>Controla las entradas y salidas de productos de Las Tres Gauchitas.</p>
+        </div>
+
+        <div class="estadisticas">
+            <div class="caja">
+                <h3><i class="fa-solid fa-arrow-down"></i> Entradas</h3>
+                <span id="totalEntradas">0</span>
+            </div>
+
+            <div class="caja">
+                <h3><i class="fa-solid fa-arrow-up"></i> Salidas</h3>
+                <span id="totalSalidas">0</span>
+            </div>
+
+            <div class="caja">
+                <h3><i class="fa-solid fa-boxes-stacked"></i> Movimientos</h3>
+                <span id="totalMovimientos">0</span>
+            </div>
+        </div>
+
+        <div class="panel-movimientos">
+
+            <div class="titulo-panel">
+                <h2>Registrar movimiento</h2>
+                <p>Completa los datos para registrar una operación.</p>
+            </div>
+
+            <div class="formulario-movimiento">
+
+                <label for="tipo">Tipo de movimiento</label>
+
+                <select id="tipo">
+                    <option value="entrada">Entrada de productos</option>
+                    <option value="salida">Salida de productos</option>
+                </select>
+
+                <div class="separador"></div>
+
+                <h3><i class="fa-solid fa-box"></i> Productos</h3>
+
+                <div id="listaProductos"></div>
+
+                <button type="button" id="agregarProducto">
+                    <i class="fa-solid fa-plus"></i>
+                    Agregar producto
+                </button>
+
+                <button type="button" id="guardarMovimiento">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Guardar movimiento
+                </button>
+
+            </div>
+        </div>
+
+        <section class="historial-movimientos">
+            <div class="historial-encabezado">
+                <div>
+                    <h2><i class="fa-solid fa-clock-rotate-left"></i> Historial de movimientos</h2>
+                    <p>Consulta las operaciones que has registrado.</p>
+                </div>
+                <span id="cantidadHistorial">0 registros</span>
+            </div>
+
+            <div class="historial-tabla-contenedor">
+                <table class="tabla-historial">
+                    <thead>
+                        <tr>
+                            <th>N.º</th>
+                            <th>Tipo</th>
+                            <th>Productos</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Comprobante</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaHistorial"></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/sesion.js"></script>
+    <script src="js/movimientos.js"></script>
+
+</body>
+</html>

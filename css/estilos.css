@@ -1,0 +1,994 @@
+:root {
+    --verde: #B5121B;
+    --verde-medio: #D71920;
+    --dorado: #FFE000;
+    --dorado-hover: #F2C900;
+    --crema: #FFFCF4;
+    --blanco: #FFFFFF;
+    --texto: #641015;
+    --gris: #80615A;
+    --rojo: #C8101E;
+    --azul: #E0A800;
+    --sombra: 0 8px 25px rgba(150, 20, 20, 0.10);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--crema);
+    color: var(--texto);
+}
+
+/* MENÚ LATERAL */
+
+.menu {
+    width: 250px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #B90012, #D71920);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 30px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 5px;
+    margin-bottom: 22px;
+    color: var(--dorado);
+}
+
+.logo h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    color: #FFE000;
+    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.menu a {
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 11px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    font-size: 11px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.menu a i {
+    width: 20px;
+    font-size: 11px;
+}
+
+.menu a:hover,
+.menu a.activo {
+    background: #FFE000;
+    color: var(--dorado);
+    transform: translateX(5px);
+    box-shadow: inset 4px 0 0 #FFFFFF;
+}
+
+/* CONTENIDO */
+
+.contenido {
+    margin-left: 250px;
+    padding: 27px;
+    min-height: 100vh;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 15px;
+}
+
+.encabezado h1,
+.bienvenida h1 {
+    color: var(--verde);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.encabezado p {
+    color: var(--gris);
+    margin-top: 7px;
+    font-size: 11px;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+}
+
+/* BOTÓN AGREGAR */
+
+#agregar {
+    background: var(--rojo);
+    color: white;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 9px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(215, 25, 32, 0.2);
+}
+
+#agregar:hover {
+    background: #A90F16;
+    transform: translateY(-2px);
+}
+
+/* BUSCADOR */
+
+#buscar {
+    padding: 14px 17px;
+    width: 300px;
+    max-width: 100%;
+    border: 1px solid #E3DCCB;
+    border-radius: 10px;
+    background: white;
+    outline: none;
+    font-size: 11px;
+    transition: 0.3s;
+}
+
+#buscar:focus {
+    border-color: #E0B900;
+    box-shadow: 0 0 0 3px rgba(255, 217, 0, 0.2);
+}
+
+/* TABLAS */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-top: 22px;
+    box-shadow: var(--sombra);
+}
+
+th {
+    background: #B5121B;
+    color: white;
+    padding: 14px 13px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+td {
+    padding: 11px;
+    border-bottom: 1px solid #F0EDE5;
+    font-size: 11px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover td {
+    background: #FFF7D6;
+}
+
+/* BOTONES DE TABLA */
+
+.editar,
+.eliminar {
+    border: none;
+    padding: 9px 12px;
+    border-radius: 7px;
+    color: white;
+    margin: 2px;
+}
+
+.editar {
+    background: var(--azul);
+}
+
+.eliminar {
+    background: var(--rojo);
+}
+
+.editar:hover,
+.eliminar:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+/* MODAL Y FORMULARIOS */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(92, 0, 8, 0.68);
+    justify-content: center;
+    align-items: center;
+    padding: 11px;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+}
+
+.formulario {
+    background: white;
+    padding: 27px;
+    border-radius: 16px;
+    width: 420px;
+    max-width: 100%;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border-top: 4px solid #F2C400;
+    animation: aparecer 0.25s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.formulario h2 {
+    color: var(--verde);
+    margin-bottom: 22px;
+    font-size: 20px;
+}
+
+.formulario label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--texto);
+}
+
+.formulario input,
+.formulario select {
+    width: 100%;
+    padding: 11px;
+    margin: 8px 0 17px;
+    border: 1px solid #E0DCCF;
+    border-radius: 9px;
+    outline: none;
+    background: #FFFEFA;
+    font-size: 11px;
+}
+
+.formulario input:focus,
+.formulario select:focus {
+    border-color: #E0B900;
+    box-shadow: 0 0 0 3px rgba(255, 217, 0, 0.15);
+}
+
+.acciones {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+#guardar,
+#cancelar {
+    flex: 1;
+    padding: 11px;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    font-weight: 600;
+}
+
+#guardar {
+    background: var(--rojo);
+}
+
+#cancelar {
+    background: #80615A;
+}
+
+#guardar:hover,
+#cancelar:hover {
+    opacity: 0.85;
+}
+
+/* BIENVENIDA */
+
+.inicio {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.bienvenida {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(110deg, #FFE500 0%, #FFF02A 65%, #FFD400 100%);
+    padding: 22px 26px;
+    border-radius: 16px;
+    border-left: 7px solid #B5121B;
+    margin-bottom: 22px;
+    box-shadow: var(--sombra);
+    position: relative;
+    overflow: hidden;
+}
+
+.bienvenida::after {
+    content: "✦";
+    position: absolute;
+    right: 130px;
+    top: -20px;
+    font-size: 100px;
+    color: rgba(215, 25, 32, 0.07);
+    pointer-events: none;
+}
+
+.bienvenida-texto {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.bienvenida h1 {
+    color: #B5121B;
+    margin-bottom: 10px;
+}
+
+.bienvenida p {
+    color: #76151B;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.bienvenida-logo {
+    width: 105px;
+    flex: 0 0 105px;
+    padding: 4px;
+    background: #FFFFFF;
+    border: 2px solid var(--rojo);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(150, 20, 20, 0.15);
+    position: relative;
+    z-index: 1;
+}
+
+.bienvenida-logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 7px;
+}
+
+/* TARJETAS PRINCIPALES */
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--sombra);
+    border: 1px solid #F0D7A0;
+    border-top: 4px solid #F2C400;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tarjeta::after {
+    content: "✦";
+    position: absolute;
+    right: 15px;
+    bottom: -25px;
+    font-size: 90px;
+    color: rgba(255, 217, 0, 0.10);
+    pointer-events: none;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(65, 30, 15, 0.16);
+}
+
+.tarjeta i {
+    font-size: 27px;
+    color: var(--rojo);
+    margin-bottom: 18px;
+}
+
+.tarjeta h2,
+.tarjeta h3 {
+    color: var(--verde);
+    margin-bottom: 12px;
+    font-size: 11px;
+}
+
+.tarjeta p {
+    color: var(--gris);
+    margin-bottom: 22px;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.tarjeta a,
+.tarjeta button {
+    display: inline-block;
+    text-decoration: none;
+    background: var(--rojo);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+.tarjeta a:hover,
+.tarjeta button:hover {
+    background: #A90F16;
+    transform: translateY(-2px);
+}
+
+/* ESTADÍSTICAS */
+
+.estadisticas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.caja {
+    background: white;
+    padding: 19px;
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+    border: 1px solid #F0D7A0;
+    border-top: 4px solid #F2C400;
+    transition: all 0.3s ease;
+}
+
+.caja:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(65, 30, 15, 0.14);
+}
+
+.caja h3 {
+    color: var(--gris);
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.caja h3 i {
+    color: var(--rojo);
+    margin-right: 6px;
+}
+
+.caja span {
+    color: var(--verde);
+    font-size: 26px;
+    font-weight: 700;
+}
+
+/* MOVIMIENTOS */
+
+.panel-movimientos {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--sombra);
+    border-top: 4px solid #F2C400;
+}
+
+.titulo-panel {
+    margin-bottom: 25px;
+}
+
+.titulo-panel h2 {
+    color: var(--verde);
+    margin-bottom: 7px;
+}
+
+.titulo-panel p {
+    color: var(--gris);
+    font-size: 11px;
+}
+
+.formulario-movimiento label {
+    display: block;
+    margin-bottom: 9px;
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.formulario-movimiento select,
+.formulario-movimiento input {
+    padding: 11px;
+    border: 1px solid #E0DCCF;
+    border-radius: 9px;
+    width: 100%;
+    outline: none;
+    background: #FFFEFA;
+    font-size: 11px;
+}
+
+.formulario-movimiento select:focus,
+.formulario-movimiento input:focus {
+    border-color: #E0B900;
+}
+
+.formulario-movimiento h3 {
+    color: var(--verde);
+    margin-bottom: 17px;
+}
+
+.separador {
+    height: 1px;
+    background: #EEECE5;
+    margin: 27px 0;
+}
+
+#listaProductos {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-bottom: 17px;
+}
+
+.producto-movimiento {
+    display: grid;
+    grid-template-columns: 2fr 1fr auto;
+    gap: 13px;
+    align-items: center;
+    background: #FFF7D6;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#agregarProducto {
+    background: var(--dorado);
+    color: var(--verde);
+    border: none;
+    padding: 12px 17px;
+    border-radius: 8px;
+    margin-bottom: 17px;
+    font-weight: 600;
+}
+
+.btn-quitar-producto {
+    background: var(--rojo);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#guardarMovimiento {
+    display: block;
+    width: 100%;
+    background: var(--rojo);
+    color: white;
+    border: none;
+    padding: 11px;
+    border-radius: 9px;
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+#agregarProducto:hover,
+#guardarMovimiento:hover,
+.btn-quitar-producto:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+.entrada {
+    color: #27834D;
+    font-weight: 600;
+}
+
+.salida {
+    color: var(--rojo);
+    font-weight: 600;
+}
+
+/* LOGIN */
+
+.pagina-login {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #A90012, #E21B2D);
+    padding: 20px;
+}
+
+.login-contenedor {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    border-radius: 18px;
+    padding: 38px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+    border-top: 5px solid var(--dorado);
+}
+
+.login-logo {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.login-logo i {
+    font-size: 42px;
+    color: var(--rojo);
+    margin-bottom: 12px;
+}
+
+.login-logo h1 {
+    color: var(--verde);
+    font-size: 20px;
+}
+
+.login-formulario h2 {
+    color: var(--verde);
+    margin-bottom: 8px;
+}
+
+.login-formulario > p {
+    color: var(--gris);
+    margin-bottom: 23px;
+    font-size: 11px;
+}
+
+.login-formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.login-formulario input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #E0DCCF;
+    border-radius: 9px;
+    margin-bottom: 18px;
+    outline: none;
+    font-size: 11px;
+}
+
+.login-formulario input:focus {
+    border-color: #E0B900;
+    box-shadow: 0 0 0 3px rgba(255, 217, 0, 0.15);
+}
+
+.campo-password {
+    position: relative;
+}
+
+.campo-password input {
+    padding-right: 45px;
+}
+
+#mostrarPassword {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background: none;
+    border: none;
+    color: var(--gris);
+    font-size: 11px;
+}
+
+.btn-login {
+    width: 100%;
+    background: var(--rojo);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.btn-login:hover {
+    background: #A90F16;
+    transform: translateY(-2px);
+}
+
+#mensajeLogin {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 11px;
+}
+
+.cambiar-login {
+    text-align: center;
+    margin-top: 23px;
+    color: var(--gris);
+    font-size: 11px;
+}
+
+.cambiar-login button {
+    background: none;
+    border: none;
+    color: var(--rojo);
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+.login-pie {
+    text-align: center;
+    color: var(--gris);
+    font-size: 11px;
+    margin-top: 26px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+    .estadisticas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .menu {
+        width: 200px;
+    }
+
+    .contenido {
+        margin-left: 200px;
+        padding: 25px;
+    }
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .menu {
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        position: relative;
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .logo {
+        margin-bottom: 5px;
+    }
+
+    .logo h2 {
+        font-size: 20px;
+    }
+
+    .menu a {
+        padding: 10px;
+    }
+
+    .contenido {
+        margin-left: 0;
+        padding: 18px;
+    }
+
+    .encabezado {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #buscar {
+        width: 100%;
+    }
+
+    .estadisticas {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .producto-movimiento {
+        grid-template-columns: 1fr;
+    }
+
+    .formulario {
+        padding: 19px;
+    }
+
+    .login-contenedor {
+        padding: 25px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .bienvenida {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+
+    .bienvenida-logo {
+        width: 90px;
+        flex-basis: 90px;
+    }
+
+    .panel-movimientos {
+        padding: 20px;
+    }
+}
+
+/* AJUSTES FINALES DE IDENTIDAD VISUAL: LAS TRES GAUCHITAS */
+.menu {
+    background: linear-gradient(180deg, #B90012 0%, #D71920 100%);
+}
+
+.menu a.activo,
+.menu a:hover {
+    background: #FFE000;
+    color: #A80E18;
+    box-shadow: none;
+    border-radius: 13px;
+}
+
+.encabezado h1,
+.bienvenida h1,
+.titulo-panel h2,
+.formulario h2,
+.login-formulario h2 {
+    color: #A90F19;
+}
+
+.caja {
+    background: #FFF5D9;
+    border: 2px solid #E9A13A;
+    border-top: 2px solid #E9A13A;
+}
+
+.caja span {
+    color: #A90F19;
+}
+
+.caja h3 {
+    color: #7B2420;
+}
+
+.tarjeta {
+    background: #FFFEFA;
+    border: 1px solid #F0D7A0;
+    border-top: 4px solid #FFE000;
+}
+
+.bienvenida {
+    background: linear-gradient(105deg, #FFE500 0%, #FFF02A 68%, #FFD21A 100%);
+    border-radius: 17px;
+}
+
+#agregar,
+#guardar,
+#guardarMovimiento,
+.btn-login,
+.tarjeta a,
+.tarjeta button {
+    background: #C8101E;
+}
+
+#agregar:hover,
+#guardar:hover,
+#guardarMovimiento:hover,
+.btn-login:hover,
+.tarjeta a:hover,
+.tarjeta button:hover {
+    background: #A80E18;
+}
+
+th {
+    background: #B5121B;
+}
+
+tbody tr:hover td {
+    background: #FFF7D6;
+}
+
+@media (max-width: 650px) {
+    .menu {
+        background: linear-gradient(90deg, #B90012, #D71920);
+    }
+}
+
+
+/* PROPORCIONES Y LEGIBILIDAD */
+body {
+    line-height: 1.5;
+}
+
+.menu a {
+    min-height: 48px;
+    font-size: 14px;
+}
+
+.encabezado h1,
+.bienvenida h1 {
+    line-height: 1.2;
+}
+
+.bienvenida p,
+.encabezado p,
+.tarjeta p,
+.titulo-panel p {
+    line-height: 1.55;
+}
+
+.caja {
+    padding: 18px;
+}
+
+.caja h3 {
+    line-height: 1.35;
+}
+
+.caja span {
+    display: inline-block;
+    line-height: 1.15;
+}
+
+.tarjeta h2,
+.tarjeta h3 {
+    line-height: 1.3;
+}
+
+.formulario,
+.login-contenedor {
+    line-height: 1.45;
+}
+
+button,
+.menu a,
+.tarjeta a {
+    line-height: 1.25;
+}
+
+/* Mantiene el tamaño de los elementos dentro de la pantalla sin agrandarlos */
+img {
+    max-width: 100%;
+}
